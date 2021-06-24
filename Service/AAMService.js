@@ -22,6 +22,7 @@ class AAMService {
                         validated = true;
                         userId = user._id;
                         user.password = ''
+                        res.setHeader("Access-Control-Allow-Origin", "*")
                         res.status(200).send(user);
                     } else if (user.userName === userName && user.password !== password) {
                         wrongPassword = true;
