@@ -10,13 +10,11 @@ const assert = require("assert");
 const AAMController = require("./Controllers/Controller.js");
 
 
-app.use(cors());
+app.use(cors({
+    origin: '*'
+}));
 app.use(express.json());
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-})
+
 
 const uri = process.env.ATLAS_URI;
 
