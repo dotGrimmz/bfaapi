@@ -14,7 +14,11 @@ app.use(cors({
     origin: '*'
 }));
 app.use(express.json());
-
+app.use((req, res, next) => {
+    res.setHeader("No Access-Control-Allow-Origin", "*")
+    res.setHeader("No Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
 
 const uri = process.env.ATLAS_URI;
 
