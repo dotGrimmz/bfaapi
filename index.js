@@ -9,10 +9,14 @@ const assert = require("assert");
 
 const AAMController = require("./Controllers/Controller.js");
 
+const corsOptions = {
+    origin: 'https://brokers-fee-app.herokuapp.com',
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200
+}
+app.use(cors(corsOptions));
 
-app.use(cors({
-    origin: '*'
-}));
+
 app.use(express.json());
 
 
@@ -42,11 +46,7 @@ connection.once("open", () => {
 // so far 
 
 app.use("/apexautomovers", AAMController);
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-})
+
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
