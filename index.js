@@ -10,7 +10,7 @@ const assert = require("assert");
 const AAMController = require("./Controllers/Controller.js");
 
 const corsOptions = {
-    origin: 'https://brokers-fee-app.herokuapp.com',
+    origin: '*',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
