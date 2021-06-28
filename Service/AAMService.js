@@ -58,7 +58,7 @@ class AAMService {
         BrokerDomain.find()
             .then(brokerfees => {
                 let sortedBrokerFees = brokerfees.sort(
-                    (a, b) => b.createdAt - a.createdAt
+                    (a, b) => b.deliveryDate - a.deliveryDate
                 );
                 res.send(sortedBrokerFees)
             })
