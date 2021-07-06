@@ -60,5 +60,10 @@ router.route('/admin/:id').put((req, res) => {
     return service.updateUser(req, res)
 })
 
+router.route('/bfaview/:id').delete((req, res) => {
+    console.log(req, 'req in controller')
+    return service.deleteBrokerFee(req, res)
+})
+
 
 module.exports = router;

@@ -166,6 +166,17 @@ class AAMService {
 
     }
 
+    deleteBrokerFee(req, res) {
+        const id = req.params.id;
+        BrokerDomain.findByIdAndDelete(id, {}, (err, doc) => {
+            if (err) {
+                res.status(400).json(err)
+            } else {
+                res.status(200).json(doc)
+            }
+        })
+    }
+
     updateUser(req, res) {
         const id = req.params.id;
         const { userName, password } = req.body;
